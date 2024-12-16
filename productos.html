@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <style>        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 95%; 
+            margin: 0 auto; 
+        }
+
+        h1 {
+            margin: 0;
+        }
+        h1 a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            background-color: #f9f9f9;
+        }
+
+        .tab.active {
+            background-color: #ddd; 
+        }
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 10px; 
+            padding: 20px;
+        }
+
+        .producto {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .producto img {
+            width: 100%; 
+            height: auto; 
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+            width: 95%; 
+            position: relative;
+            bottom: 0;
+            margin: 0 auto; 
+        }
+        .comprar-btn {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            background-color: #28a745; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .comprar-btn.comprado {
+            background-color: #dc3545; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><a href="index.html">Por&ParaFrikis.com</a></h1>
+    </header>
+
+    <div class="tabs">
+        <div class="tab active" onclick="filterProducts('all')">Todo</div>
+        <div class="tab" onclick="filterProducts('sombreros')">Sombreros</div>
+        <div class="tab" onclick="filterProducts('camisetas')">Camisetas</div>
+        <div class="tab" onclick="filterProducts('pantalones')">Pantalones</div>
+        <div class="tab" onclick="filterProducts('zapatos')">Zapatos</div>
+    </div>
+
+    <div class="productos" id="productContainer">
+        <div class="producto sombreros">
+            <img src="productos_ropa/sombrero1.png" alt="Sombrero 1">
+            <p>Sombrero 1</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto sombreros">
+            <img src="productos_ropa/sombrero2.png" alt="Sombrero 2">
+            <p>Sombrero 2</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto sombreros">
+            <img src="productos_ropa/sombrero3.png" alt="Sombrero 3">
+            <p>Sombrero 3</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto sombreros">
+            <img src="productos_ropa/sombrero4.png" alt="Sombrero 4">
+            <p>Sombrero 4</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto sombreros">
+            <img src="productos_ropa/sombrero5.png" alt="Sombrero 5">
+            <p>Sombrero 5</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto camisetas">
+            <img src="productos_ropa/camiseta1.png" alt="Camiseta 1">
+            <p>Camiseta 1</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto camisetas">
+            <img src="productos_ropa/camiseta2.png" alt="Camiseta 2">
+            <p>Camiseta 2</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto camisetas">
+            <img src="productos_ropa/camiseta3.png" alt="Camiseta 3">
+            <p>Camiseta 3</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto camisetas">
+            <img src="productos_ropa/camiseta4.png" alt="Camiseta 4">
+            <p>Camiseta 4</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto camisetas">
+            <img src="productos_ropa/camiseta5.png" alt="Camiseta 5">
+            <p>Camiseta 5</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto pantalones">
+            <img src="productos_ropa/pantalon1.png" alt="Pantalón 1">
+            <p>Pantalón 1</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto pantalones">
+            <img src="productos_ropa/pantalon2.png" alt="Pantalón 2">
+            <p>Pantalón 2</p>
+            <p class="precio">$20.00</p>
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto pantalones">
+            <img src="productos_ropa/pantalon3.png" alt="Pantalón 3">
+            <p>Pantalón 3</p>
+            <p class="precio">$20.00</p>
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto pantalones">
+            <img src="productos_ropa/pantalon4.png" alt="Pantalón 4">
+            <p>Pantalón 4</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto pantalones">
+            <img src="productos_ropa/pantalon5.png" alt="Pantalón 5">
+            <p>Pantalón 5</p>
+            <p class="precio">$20.00</p>
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto zapatos">
+            <img src="productos_ropa/zapatos1.png" alt="Zapatos 1">
+            <p>Zapatos 1</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto zapatos">
+            <img src="productos_ropa/zapatos2.png" alt="Zapatos 2">
+            <p>Zapatos 2</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto zapatos">
+            <img src="productos_ropa/zapatos3.png" alt="Zapatos 3">
+            <p>Zapatos 3</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto zapatos">
+            <img src="productos_ropa/zapatos4.png" alt="Zapatos 4">
+            <p>Zapatos 4</p>
+            <p class="precio">$20.00</p>
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <div class="producto zapatos">
+            <img src="productos_ropa/zapatos5.png" alt="Zapatos 5">
+            <p>Zapatos 5</p>
+            <p class="precio">$20.00</p> 
+            <button class="comprar-btn" onclick="toggleCompra(this)">Comprar</button>
+        </div>
+        <!-- Agrega más productos según sea necesario -->
+    </div>
+
+    <footer>
+        <p>Desarrollado por Gregory Alberto Buendia Barros</p>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.producto');
+            const tabs = document.querySelectorAll('.tab');
+
+            // Ocultar todos los productos
+            products.forEach(product => {
+                product.style.display = 'none';
+            });
+
+            // Mostrar productos según la categoría
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block';
+                }
+            });
+
+            // Actualizar el estado de las pestañas
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`.tab:contains(${category.charAt(0).toUpperCase() + category.slice(1)})`).classList.add('active');
+        }
+    </script>
+
+    <script>
+        // Función que cambia el estado del botón de "Comprar" a "Comprado" y viceversa
+        function toggleCompra(button) {
+            if (button.classList.contains('comprado')) {
+                button.classList.remove('comprado');
+                button.innerText = "Comprar";
+                button.style.backgroundColor = '#28a745'; // Verde
+            } else {
+                button.classList.add('comprado');
+                button.innerText = "Comprado";
+                button.style.backgroundColor = '#dc3545'; // Rojo
+            }
+        }
+    </script>
+</body>
+</html>
